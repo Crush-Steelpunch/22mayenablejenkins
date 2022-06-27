@@ -4,7 +4,8 @@ pipeline {
         stage('Pytest') {
             agent { 
                 label 'tester'
-            }            steps {
+            }            
+            steps {
                 //
                 git branch: 'main', url: 'https://github.com/Crush-Steelpunch/staffflaskapp.git'
                 sh '''#/bin/bash
@@ -30,7 +31,8 @@ pipeline {
         stage('Deploy') {
             agent { 
                 label 'runner'
-            }            steps {
+            }            
+            steps {
                 //
                 sh '''#/bin/bash
                 kill $(cat /tmp/gpidfile)
