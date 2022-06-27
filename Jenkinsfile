@@ -1,9 +1,10 @@
 pipeline {
-    agent any
+    agent none
     stages {
         stage('Pytest') {
-            agent "tester"
-            steps {
+            agent { 
+                label 'tester'
+            }            steps {
                 //
                 git branch: 'main', url: 'https://github.com/Crush-Steelpunch/staffflaskapp.git'
                 sh '''#/bin/bash
@@ -14,7 +15,9 @@ pipeline {
             }
         }
         stage('Pip install') {
-            agent "runner"
+            agent { 
+                label 'runner'
+            }
             steps {
                 //
                 sh '''#/bin/bash
@@ -25,8 +28,9 @@ pipeline {
             }
         }
         stage('Deploy') {
-            agent "runner"
-            steps {
+            agent { 
+                label 'runner'
+            }            steps {
                 //
                 sh '''#/bin/bash
                 kill $(cat /tmp/gpidfile)
