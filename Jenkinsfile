@@ -37,7 +37,9 @@ pipeline {
             steps {
                 //
                 sh '''#!/bin/bash
-                kill $(cat /tmp/gpidfile)
+                if [-f  /tmp/gpidfile]
+                  then kill $(cat /tmp/gpidfile)
+                fi
                 source venv/bin/activate
                 BUILD_ID=nokill gunicorn -D -w 4 -b 0.0.0.0:5000 -p /tmp/gpidfile'''
             }
