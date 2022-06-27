@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage('Stage 1') {
+            steps {
+                // Clone https://gitlab.com/qacdevops/chaperootodo_client, making sure it doesn't already exist.
+            
+            }
+        }
+        stage('Stage 2') {
+            steps {
+                //Install Docker and Docker-Compose.
+            }
+        }
+        stage('Stage 3') {
+            steps {
+                //Deploy the application, using sudo docker-compose pull && sudo -E DB_PASSWORD=${DB_PASSWORD} 
+                // docker-compose up -d.
+            }
+        }
+    }
+}
