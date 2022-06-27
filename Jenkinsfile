@@ -22,6 +22,7 @@ pipeline {
             }
             steps {
                 //
+                git branch: 'main', url: 'https://github.com/Crush-Steelpunch/staffflaskapp.git'
                 sh '''#!/bin/bash
                 python3 -m venv venv
                 source venv/bin/activate
