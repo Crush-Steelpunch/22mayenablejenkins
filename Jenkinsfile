@@ -37,7 +37,7 @@ pipeline {
             steps {
                 //
                 sh '''#!/bin/bash
-                if [-f  /tmp/gpidfile]
+                if [ -f  /tmp/gpidfile ]
                   then kill $(cat /tmp/gpidfile)
                 fi
                 source venv/bin/activate
