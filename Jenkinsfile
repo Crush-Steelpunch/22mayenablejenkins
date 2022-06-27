@@ -8,7 +8,7 @@ pipeline {
             steps {
                 //
                 git branch: 'main', url: 'https://github.com/Crush-Steelpunch/staffflaskapp.git'
-                sh '''#/bin/bash
+                sh '''#!/bin/bash
                 python3 -m venv venv
                 source venv/bin/activate
                 pip3 install -r requirements.txt
@@ -21,7 +21,7 @@ pipeline {
             }
             steps {
                 //
-                sh '''#/bin/bash
+                sh '''#!/bin/bash
                 python3 -m venv venv
                 source venv/bin/activate
                 pip3 install -r requirements.txt
@@ -34,7 +34,7 @@ pipeline {
             }            
             steps {
                 //
-                sh '''#/bin/bash
+                sh '''#!/bin/bash
                 kill $(cat /tmp/gpidfile)
                 source venv/bin/activate
                 BUILD_ID=nokill gunicorn -D -w 4 -b 0.0.0.0:5000 -p /tmp/gpidfile'''
