@@ -36,6 +36,7 @@ pipeline {
             }            
             steps {
                 //
+                git branch: 'main', url: 'https://github.com/Crush-Steelpunch/staffflaskapp.git'
                 sh '''#!/bin/bash
                 if [ -f  /tmp/gpidfile ]
                   then kill $(cat /tmp/gpidfile)
