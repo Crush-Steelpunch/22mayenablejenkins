@@ -36,6 +36,11 @@ pipeline {
             steps {
                 //Deploy the application, using sudo docker-compose pull && 
                 //sudo -E DB_PASSWORD=${DB_PASSWORD} docker-compose up -d.
+
+                // Note: Because the exercise didn't specify the plugin install vs the 
+                // standalone executable I'm using a different launch command to what
+                // was requested
+                
                 sh 'sudo docker compose pull && sudo -E DB_PASSWORD=${DB_PASSWORD} docker compose up -d'
 
             }
